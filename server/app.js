@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 
 // Import routes
 const userRoutes = require('./routes/userRoutes');
+const gameRoutes = require('./routes/gameRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -27,6 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/hedera-pr
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/game', gameRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
